@@ -7,6 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		832A53231796F474008FF8B0 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 832A53221796F474008FF8B0 /* MainViewController.m */; };
+		83588A6A17971388008DCA4D /* garden@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 83588A6817971388008DCA4D /* garden@2x.png */; };
+		83588A6B17971388008DCA4D /* garden.png in Resources */ = {isa = PBXBuildFile; fileRef = 83588A6917971388008DCA4D /* garden.png */; };
+		8367B29D1796F6C300D9E77C /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8367B29C1796F6C300D9E77C /* SettingsViewController.m */; };
+		8367B2A01796F78600D9E77C /* SideMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8367B29F1796F78600D9E77C /* SideMenuViewController.m */; };
+		8367B2A21796FE0D00D9E77C /* menuButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8367B2A11796FE0D00D9E77C /* menuButton@2x.png */; };
+		8367B2A4179707B700D9E77C /* dining.png in Resources */ = {isa = PBXBuildFile; fileRef = 8367B2A3179707B700D9E77C /* dining.png */; };
+		8367B2A6179707FB00D9E77C /* dining@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8367B2A5179707FB00D9E77C /* dining@2x.png */; };
+		8367B2A9179708B700D9E77C /* bedroom.png in Resources */ = {isa = PBXBuildFile; fileRef = 8367B2A7179708B700D9E77C /* bedroom.png */; };
+		8367B2AA179708B700D9E77C /* bedroom@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8367B2A8179708B700D9E77C /* bedroom@2x.png */; };
+		8367B2AD17970D4200D9E77C /* RoomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8367B2AC17970D4200D9E77C /* RoomViewController.m */; };
+		8367B2AF179710A100D9E77C /* add_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 8367B2AE179710A100D9E77C /* add_button.png */; };
 		83A004011796C06F00E8693B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83A004001796C06F00E8693B /* UIKit.framework */; };
 		83A004031796C06F00E8693B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83A004021796C06F00E8693B /* Foundation.framework */; };
 		83A004051796C06F00E8693B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83A004041796C06F00E8693B /* CoreGraphics.framework */; };
@@ -19,9 +31,33 @@
 		83A0041A1796C06F00E8693B /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83A004181796C06F00E8693B /* MainStoryboard_iPhone.storyboard */; };
 		83A0041D1796C06F00E8693B /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83A0041B1796C06F00E8693B /* MainStoryboard_iPad.storyboard */; };
 		83A004201796C06F00E8693B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A0041F1796C06F00E8693B /* ViewController.m */; };
+		83A0042B1796CB9A00E8693B /* home.png in Resources */ = {isa = PBXBuildFile; fileRef = 83A004291796CB9A00E8693B /* home.png */; };
+		83A0042C1796CB9A00E8693B /* bulb.png in Resources */ = {isa = PBXBuildFile; fileRef = 83A0042A1796CB9A00E8693B /* bulb.png */; };
+		83A004301796CDBE00E8693B /* room.png in Resources */ = {isa = PBXBuildFile; fileRef = 83A0042D1796CDBE00E8693B /* room.png */; };
+		83A004311796CDBE00E8693B /* scene.png in Resources */ = {isa = PBXBuildFile; fileRef = 83A0042E1796CDBE00E8693B /* scene.png */; };
+		83A004341796CE9F00E8693B /* sun.png in Resources */ = {isa = PBXBuildFile; fileRef = 83A004331796CE9F00E8693B /* sun.png */; };
+		83A127B51796EF84008CF720 /* ECSlidingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A127B21796EF84008CF720 /* ECSlidingViewController.m */; };
+		83A127B61796EF84008CF720 /* UIImage+ImageWithUIView.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A127B41796EF84008CF720 /* UIImage+ImageWithUIView.m */; };
+		83A127BC1796F011008CF720 /* InitialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A127BB1796F011008CF720 /* InitialViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		832A53211796F474008FF8B0 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		832A53221796F474008FF8B0 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		83588A6817971388008DCA4D /* garden@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "garden@2x.png"; sourceTree = "<group>"; };
+		83588A6917971388008DCA4D /* garden.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = garden.png; sourceTree = "<group>"; };
+		8367B29B1796F6C300D9E77C /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		8367B29C1796F6C300D9E77C /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		8367B29E1796F78600D9E77C /* SideMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SideMenuViewController.h; sourceTree = "<group>"; };
+		8367B29F1796F78600D9E77C /* SideMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SideMenuViewController.m; sourceTree = "<group>"; };
+		8367B2A11796FE0D00D9E77C /* menuButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menuButton@2x.png"; sourceTree = "<group>"; };
+		8367B2A3179707B700D9E77C /* dining.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dining.png; sourceTree = "<group>"; };
+		8367B2A5179707FB00D9E77C /* dining@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dining@2x.png"; sourceTree = "<group>"; };
+		8367B2A7179708B700D9E77C /* bedroom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bedroom.png; sourceTree = "<group>"; };
+		8367B2A8179708B700D9E77C /* bedroom@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bedroom@2x.png"; sourceTree = "<group>"; };
+		8367B2AB17970D4200D9E77C /* RoomViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomViewController.h; sourceTree = "<group>"; };
+		8367B2AC17970D4200D9E77C /* RoomViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomViewController.m; sourceTree = "<group>"; };
+		8367B2AE179710A100D9E77C /* add_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add_button.png; sourceTree = "<group>"; };
 		83A003FD1796C06F00E8693B /* Homie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Homie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		83A004001796C06F00E8693B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		83A004021796C06F00E8693B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -39,6 +75,17 @@
 		83A0041C1796C06F00E8693B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
 		83A0041E1796C06F00E8693B /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		83A0041F1796C06F00E8693B /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		83A004291796CB9A00E8693B /* home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home.png; sourceTree = "<group>"; };
+		83A0042A1796CB9A00E8693B /* bulb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bulb.png; sourceTree = "<group>"; };
+		83A0042D1796CDBE00E8693B /* room.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = room.png; sourceTree = "<group>"; };
+		83A0042E1796CDBE00E8693B /* scene.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scene.png; sourceTree = "<group>"; };
+		83A004331796CE9F00E8693B /* sun.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sun.png; sourceTree = "<group>"; };
+		83A127B11796EF84008CF720 /* ECSlidingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECSlidingViewController.h; sourceTree = "<group>"; };
+		83A127B21796EF84008CF720 /* ECSlidingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECSlidingViewController.m; sourceTree = "<group>"; };
+		83A127B31796EF84008CF720 /* UIImage+ImageWithUIView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageWithUIView.h"; sourceTree = "<group>"; };
+		83A127B41796EF84008CF720 /* UIImage+ImageWithUIView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageWithUIView.m"; sourceTree = "<group>"; };
+		83A127BA1796F011008CF720 /* InitialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InitialViewController.h; sourceTree = "<group>"; };
+		83A127BB1796F011008CF720 /* InitialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InitialViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				83A004061796C06F00E8693B /* Homie */,
+				83A004261796C68B00E8693B /* Icons */,
 				83A003FF1796C06F00E8693B /* Frameworks */,
 				83A003FE1796C06F00E8693B /* Products */,
 			);
@@ -91,6 +139,20 @@
 				83A0041B1796C06F00E8693B /* MainStoryboard_iPad.storyboard */,
 				83A0041E1796C06F00E8693B /* ViewController.h */,
 				83A0041F1796C06F00E8693B /* ViewController.m */,
+				83A127BA1796F011008CF720 /* InitialViewController.h */,
+				83A127BB1796F011008CF720 /* InitialViewController.m */,
+				8367B29E1796F78600D9E77C /* SideMenuViewController.h */,
+				8367B29F1796F78600D9E77C /* SideMenuViewController.m */,
+				832A53211796F474008FF8B0 /* MainViewController.h */,
+				832A53221796F474008FF8B0 /* MainViewController.m */,
+				8367B2AB17970D4200D9E77C /* RoomViewController.h */,
+				8367B2AC17970D4200D9E77C /* RoomViewController.m */,
+				8367B29B1796F6C300D9E77C /* SettingsViewController.h */,
+				8367B29C1796F6C300D9E77C /* SettingsViewController.m */,
+				83A127B11796EF84008CF720 /* ECSlidingViewController.h */,
+				83A127B21796EF84008CF720 /* ECSlidingViewController.m */,
+				83A127B31796EF84008CF720 /* UIImage+ImageWithUIView.h */,
+				83A127B41796EF84008CF720 /* UIImage+ImageWithUIView.m */,
 				83A004071796C06F00E8693B /* Supporting Files */,
 			);
 			path = Homie;
@@ -108,6 +170,27 @@
 				83A004161796C06F00E8693B /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		83A004261796C68B00E8693B /* Icons */ = {
+			isa = PBXGroup;
+			children = (
+				83588A6817971388008DCA4D /* garden@2x.png */,
+				83588A6917971388008DCA4D /* garden.png */,
+				8367B2AE179710A100D9E77C /* add_button.png */,
+				8367B2A7179708B700D9E77C /* bedroom.png */,
+				8367B2A8179708B700D9E77C /* bedroom@2x.png */,
+				8367B2A5179707FB00D9E77C /* dining@2x.png */,
+				8367B2A3179707B700D9E77C /* dining.png */,
+				8367B2A11796FE0D00D9E77C /* menuButton@2x.png */,
+				83A004331796CE9F00E8693B /* sun.png */,
+				83A0042D1796CDBE00E8693B /* room.png */,
+				83A0042E1796CDBE00E8693B /* scene.png */,
+				83A004291796CB9A00E8693B /* home.png */,
+				83A0042A1796CB9A00E8693B /* bulb.png */,
+			);
+			name = Icons;
+			path = Homie;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -167,6 +250,19 @@
 				83A004171796C06F00E8693B /* Default-568h@2x.png in Resources */,
 				83A0041A1796C06F00E8693B /* MainStoryboard_iPhone.storyboard in Resources */,
 				83A0041D1796C06F00E8693B /* MainStoryboard_iPad.storyboard in Resources */,
+				83A0042B1796CB9A00E8693B /* home.png in Resources */,
+				83A0042C1796CB9A00E8693B /* bulb.png in Resources */,
+				83A004301796CDBE00E8693B /* room.png in Resources */,
+				83A004311796CDBE00E8693B /* scene.png in Resources */,
+				83A004341796CE9F00E8693B /* sun.png in Resources */,
+				8367B2A21796FE0D00D9E77C /* menuButton@2x.png in Resources */,
+				8367B2A4179707B700D9E77C /* dining.png in Resources */,
+				8367B2A6179707FB00D9E77C /* dining@2x.png in Resources */,
+				8367B2A9179708B700D9E77C /* bedroom.png in Resources */,
+				8367B2AA179708B700D9E77C /* bedroom@2x.png in Resources */,
+				8367B2AF179710A100D9E77C /* add_button.png in Resources */,
+				83588A6A17971388008DCA4D /* garden@2x.png in Resources */,
+				83588A6B17971388008DCA4D /* garden.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -180,6 +276,13 @@
 				83A0040D1796C06F00E8693B /* main.m in Sources */,
 				83A004111796C06F00E8693B /* AppDelegate.m in Sources */,
 				83A004201796C06F00E8693B /* ViewController.m in Sources */,
+				83A127B51796EF84008CF720 /* ECSlidingViewController.m in Sources */,
+				83A127B61796EF84008CF720 /* UIImage+ImageWithUIView.m in Sources */,
+				83A127BC1796F011008CF720 /* InitialViewController.m in Sources */,
+				832A53231796F474008FF8B0 /* MainViewController.m in Sources */,
+				8367B29D1796F6C300D9E77C /* SettingsViewController.m in Sources */,
+				8367B2A01796F78600D9E77C /* SideMenuViewController.m in Sources */,
+				8367B2AD17970D4200D9E77C /* RoomViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -312,6 +415,7 @@
 				83A004251796C06F00E8693B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
