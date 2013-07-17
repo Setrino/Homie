@@ -46,7 +46,12 @@
     [menuButton setBackgroundImage:[UIImage imageNamed:@"menuButton.png"] forState:UIControlStateNormal];
     [menuButton addTarget:self action:@selector(revealMenu:) forControlEvents:UIControlEventTouchUpInside];
     
-    [self.view addSubview: self.menuButton];  
+    [self.view addSubview: self.menuButton];
+    
+    /*
+     for(UITabBarItem *item in self.tabBar.items)
+        item.enabled = false;
+     */
 }
 
 - (void)didReceiveMemoryWarning

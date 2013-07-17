@@ -7,6 +7,7 @@
 //
 
 #import "RoomViewController.h"
+#import "MainViewController.h"
 
 @interface RoomViewController ()
 
@@ -51,10 +52,6 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-- (IBAction)addRoom:(id)sender{
-    NSLog(@"Add Room");
 }
 
 #pragma mark - Table view data source
@@ -233,7 +230,11 @@
         newTopViewController = [self.storyboard instantiateViewControllerWithIdentifier:identifier];
         
     }
+}
 
+- (IBAction)addRoom:(id)sender{
+    NSLog(@"Add Room");
+    
 }
 
 @end
