@@ -235,6 +235,9 @@
 - (IBAction)addRoom:(id)sender{
     NSLog(@"Add Room");
     
+    for(UITabBarItem *item in self.tabBarController.tabBar.items)
+        item.enabled = true;
+    
 }
 
 @end

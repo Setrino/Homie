@@ -48,10 +48,10 @@
     
     [self.view addSubview: self.menuButton];
     
-    /*
+    
      for(UITabBarItem *item in self.tabBar.items)
         item.enabled = false;
-     */
+     
 }
 
 - (void)didReceiveMemoryWarning
