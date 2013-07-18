@@ -12,6 +12,7 @@
 
 #define NAV_BAR_HEIGHT 44
 #define HUBS_HEIGHT 60
+#define NEWS_FEED_HEIGHT 200
 #define ARROW_BUTTON_WIDTH 12
 #define ARROW_BUTTON_HEIGHT 18
 #define NO_OF_HUBS 3
@@ -48,6 +49,12 @@
     
     [self.view addGestureRecognizer:self.slidingViewController.panGesture];
     
+    NSArray *houseNews = [NSArray arrayWithObjects:@"Humidity Sensor", @"Light 1", @"Music 1", @"Light 2", @"TV 1", @"Air-con", nil];
+    NSArray *officeNews = [NSArray arrayWithObjects:@"Alarm Switch", @"Big Light", @"Motion 1", @"Motion 2", @"Projector", @"Server 1", nil];
+    NSArray *appartmentNews = [NSArray arrayWithObjects:@"Front Door", @"Window 1", @"Curatain 2", @"Gas Alarm", @"Temperature", @"Lights 2", nil];
+    
+    newsFeed = [NSArray arrayWithObjects:houseNews, officeNews, appartmentNews, nil];
+    
     self.menuButton = [UIButton buttonWithType:UIButtonTypeCustom];
     menuButton.frame = CGRectMake(8, 10, 34, 24);
     [menuButton setBackgroundImage:[UIImage imageNamed:@"menuButton.png"] forState:UIControlStateNormal];
@@ -66,23 +73,27 @@
     scrollView.clipsToBounds = YES;
     scrollView.scrollEnabled = YES;
     scrollView.pagingEnabled = YES;
+    [scrollView.layer setCornerRadius:8.0f];
+    [scrollView.layer setMasksToBounds:YES];
     scrollView.bounces = NO;
     scrollView.delegate = self;
     
     [hubMenuOverlay addSubview:scrollView];
     
     UIView *homeView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, HUBS_HEIGHT)];
-    homeView.backgroundColor = [UIColor blueColor];
+    homeView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"house.png"]];
+    
+    NSString *homeString = @"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
     
     [scrollView addSubview:homeView];
     
     UIView *officeView = [[UIView alloc] initWithFrame:CGRectMake(320, 0, 320, HUBS_HEIGHT)];
-    officeView.backgroundColor = [UIColor orangeColor];
+    officeView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"office.png"]];
     
     [scrollView addSubview:officeView];
     
     UIView *appartmentView = [[UIView alloc] initWithFrame:CGRectMake(640, 0, 320, HUBS_HEIGHT)];
-    appartmentView.backgroundColor = [UIColor purpleColor];
+    appartmentView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"apartment.png"]];
     
     [scrollView addSubview:appartmentView];
     
@@ -108,9 +119,31 @@
     
     [self.view addSubview:rightHub];
     
+    scrollViewText = [[UIScrollView alloc] initWithFrame:CGRectMake(0, HUBS_HEIGHT, 320, NEWS_FEED_HEIGHT)];
+    scrollViewText.indicatorStyle = UIScrollViewIndicatorStyleBlack;
+    scrollViewText.scrollEnabled = YES;
+    
+    notificationsLog = [[UITextView alloc] initWithFrame:CGRectMake(0, HUBS_HEIGHT, 320, NEWS_FEED_HEIGHT)];
+    notificationsLog.text = homeString;
+    [notificationsLog.layer setBorderColor: [[UIColor grayColor] CGColor]];
+    [notificationsLog.layer setBorderWidth: 1.0];
+    [notificationsLog.layer setCornerRadius:8.0f];
+    [notificationsLog.layer setMasksToBounds:YES];
+    [notificationsLog setFont:[UIFont systemFontOfSize:16]];
+    notificationsLog.clipsToBounds = YES;
+    notificationsLog.editable = NO;
+    
+    //[hubMenuOverlay addSubview:notificationsLog];
+    
+    notificationsTable = [[UITableView alloc] initWithFrame:CGRectMake(0, HUBS_HEIGHT, 320, NEWS_FEED_HEIGHT) style:UITableViewStylePlain];
+    notificationsTable.delegate = self;
+    notificationsTable.dataSource = self;
+    
+    [hubMenuOverlay addSubview:notificationsTable];
+    
+    
      for(UITabBarItem *item in self.tabBar.items)
         item.enabled = false;
-     
 }
 
 - (void)didReceiveMemoryWarning
@@ -124,6 +157,47 @@
     CGFloat pageWidth = scrollView.frame.size.width;
     int page = floor((scrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
     pageControl.currentPage = page;
+    [notificationsTable reloadData];
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    // Return the number of sections.
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 6;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    NSString *cellIdentifier = @"NotificationCell";
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    if(cell == nil){
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
+    }
+    
+    //frame should be set accordingly(means should be framed accordingly).
+    
+    //cell.textLabel.text = [[newsFeed objectAtIndex:pageControl.currentPage] objectAtIndex:indexPath.row];
+    
+    UILabel *l1=[[UILabel alloc]initWithFrame:CGRectMake(5, 5, 100, 50)];
+    l1.text = @"Rm: Dining";
+    
+    UILabel *l2=[[UILabel alloc]initWithFrame:CGRectMake(100, 5, 100, 50)];
+    l2.text = [[newsFeed objectAtIndex:pageControl.currentPage] objectAtIndex:indexPath.row];
+    
+    UILabel *l3=[[UILabel alloc]initWithFrame:CGRectMake(200, 5, 120, 50)];
+    l3.text = @"Status: Not working";
+    
+    [cell.contentView addSubview:l1];
+    [cell.contentView addSubview:l2];
+    [cell.contentView addSubview:l3];
+    
+    return cell;
 }
 
 - (IBAction)revealMenu:(id)sender{
@@ -150,6 +224,7 @@
     frame.origin.x = frame.size.width * pageControl.currentPage;
     frame.origin.y = 0;
     [scrollView scrollRectToVisible:frame animated:YES];
+    [notificationsTable reloadData];
 }
 
 - (void)moveTo:(int)newPage{
@@ -159,6 +234,7 @@
     frame.origin.y = 0;
     [scrollView scrollRectToVisible:frame animated:YES];
     pageControl.currentPage = newPage;
+    [notificationsTable reloadData];
 }
 
 @end

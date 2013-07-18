@@ -8,12 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MainViewController : UITabBarController <UIScrollViewDelegate>{
+@interface MainViewController : UITabBarController <UIScrollViewDelegate, UITableViewDataSource, UITableViewDelegate>{
 
+    NSArray *newsFeed;
     UIButton *leftHub;
     UIButton *rightHub;
     UIView *hubMenuOverlay;
     UIScrollView *scrollView;
+    UIScrollView *scrollViewText;
+    UITextView *notificationsLog;
+    UITableView *notificationsTable;
     UIPageControl *pageControl;
 }
 
