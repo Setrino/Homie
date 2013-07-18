@@ -25,6 +25,7 @@
 @implementation MainViewController
 
 @synthesize menuButton;
+@synthesize homeButton;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -62,8 +63,15 @@
     
     [self.view addSubview: self.menuButton];
     
+    self.homeButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    homeButton.frame = CGRectMake(60, 6, 30, 30);
+    [homeButton setBackgroundImage:[UIImage imageNamed:@"home.png"] forState:UIControlStateNormal];
+    [homeButton addTarget:self action:@selector(hideMenu:) forControlEvents:UIControlEventTouchUpInside];
+    
+    [self.view addSubview: self.homeButton];
+    
     hubMenuOverlay = [[UIView alloc] initWithFrame:CGRectMake(0, NAV_BAR_HEIGHT, 320, 368)];
-    hubMenuOverlay.backgroundColor = [UIColor blackColor];
+    hubMenuOverlay.backgroundColor = [UIColor whiteColor];
     
     [self.view addSubview: hubMenuOverlay];
     
@@ -202,6 +210,18 @@
 
 - (IBAction)revealMenu:(id)sender{
     [self.slidingViewController anchorTopViewTo:ECRight];
+}
+
+- (IBAction)hideMenu:(id)sender{
+    
+    
+    if(hiddenHome){
+        hubMenuOverlay.hidden = FALSE;
+        hiddenHome = FALSE;
+    }else{
+        hubMenuOverlay.hidden = TRUE;
+        hiddenHome = TRUE;
+    }
 }
 
 - (IBAction)slideLeft:(id)sender{

@@ -19,8 +19,10 @@
     UITextView *notificationsLog;
     UITableView *notificationsTable;
     UIPageControl *pageControl;
+    BOOL hiddenHome;
 }
 
 @property (strong, nonatomic) UIButton *menuButton;
+@property (strong, nonatomic) UIButton *homeButton;
 
 @end
