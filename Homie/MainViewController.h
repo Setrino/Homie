@@ -10,6 +10,8 @@
 
 @interface MainViewController : UITabBarController <UIScrollViewDelegate>{
 
+    UIButton *leftHub;
+    UIButton *rightHub;
     UIView *hubMenuOverlay;
     UIScrollView *scrollView;
     UIPageControl *pageControl;

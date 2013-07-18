@@ -12,6 +12,10 @@
 
 #define NAV_BAR_HEIGHT 44
 #define HUBS_HEIGHT 60
+#define ARROW_BUTTON_WIDTH 12
+#define ARROW_BUTTON_HEIGHT 18
+#define NO_OF_HUBS 3
+
 
 @interface MainViewController ()
 
@@ -77,14 +81,32 @@
     
     [scrollView addSubview:officeView];
     
-    scrollView.contentSize = CGSizeMake(scrollView.frame.size.width * 2, scrollView.frame.size.height);
+    UIView *appartmentView = [[UIView alloc] initWithFrame:CGRectMake(640, 0, 320, HUBS_HEIGHT)];
+    appartmentView.backgroundColor = [UIColor purpleColor];
+    
+    [scrollView addSubview:appartmentView];
+    
+    scrollView.contentSize = CGSizeMake(scrollView.frame.size.width * NO_OF_HUBS, scrollView.frame.size.height);
     
     
     pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(150, NAV_BAR_HEIGHT + HUBS_HEIGHT - 15, 20, 10)];
-    pageControl.numberOfPages = 2;
+    pageControl.numberOfPages = NO_OF_HUBS;
     pageControl.currentPage = 0;
+    [pageControl addTarget:self action:@selector(changePage:) forControlEvents:UIControlEventValueChanged];
     
     [self.view addSubview: pageControl];
+    
+    leftHub = [[UIButton alloc] initWithFrame:CGRectMake(5, NAV_BAR_HEIGHT + (HUBS_HEIGHT - ARROW_BUTTON_HEIGHT) / 2, 12, 18)];
+    [leftHub setBackgroundImage:[UIImage imageNamed:@"left_arrow.png"] forState:UIControlStateNormal];
+    [leftHub addTarget:self action:@selector(slideLeft:) forControlEvents:UIControlEventTouchUpInside];
+    
+    [self.view addSubview:leftHub];
+    
+    rightHub = [[UIButton alloc] initWithFrame:CGRectMake(315 - ARROW_BUTTON_WIDTH, NAV_BAR_HEIGHT + (HUBS_HEIGHT - ARROW_BUTTON_HEIGHT) / 2, 12, 18)];
+    [rightHub setBackgroundImage:[UIImage imageNamed:@"right_arrow.png"] forState:UIControlStateNormal];
+    [rightHub addTarget:self action:@selector(slideRight:) forControlEvents:UIControlEventTouchUpInside];
+    
+    [self.view addSubview:rightHub];
     
      for(UITabBarItem *item in self.tabBar.items)
         item.enabled = false;
@@ -106,6 +128,37 @@
 
 - (IBAction)revealMenu:(id)sender{
     [self.slidingViewController anchorTopViewTo:ECRight];
+}
+
+- (IBAction)slideLeft:(id)sender{
+    
+    if(pageControl.currentPage != 0){
+        [self moveTo:pageControl.currentPage --];
+    }
+}
+
+- (IBAction)slideRight:(id)sender{
+    
+    if(pageControl.currentPage != pageControl.numberOfPages - 1){
+        [self moveTo:pageControl.currentPage ++];
+    }
+}
+
+- (IBAction)changePage:(id)sender{
+    
+    CGRect frame = scrollView.frame;
+    frame.origin.x = frame.size.width * pageControl.currentPage;
+    frame.origin.y = 0;
+    [scrollView scrollRectToVisible:frame animated:YES];
+}
+
+- (void)moveTo:(int)newPage{
+    
+    CGRect frame = scrollView.frame;
+    frame.origin.x = frame.size.width * pageControl.currentPage;
+    frame.origin.y = 0;
+    [scrollView scrollRectToVisible:frame animated:YES];
+    pageControl.currentPage = newPage;
 }
 
 @end
