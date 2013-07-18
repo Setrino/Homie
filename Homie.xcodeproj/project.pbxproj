@@ -377,10 +377,14 @@
 		83A004241796C06F00E8693B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: Sergei Kostevitch (722F2DF286)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Sergei Kostevitch (722F2DF286)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Homie/Homie-Prefix.pch";
 				INFOPLIST_FILE = "Homie/Homie-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "3D378DC6-3EDF-4D01-8107-840EEFC62006";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "3D378DC6-3EDF-4D01-8107-840EEFC62006";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -388,10 +392,14 @@
 		83A004251796C06F00E8693B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: Sergei Kostevitch (722F2DF286)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Sergei Kostevitch (722F2DF286)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Homie/Homie-Prefix.pch";
 				INFOPLIST_FILE = "Homie/Homie-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "3D378DC6-3EDF-4D01-8107-840EEFC62006";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "3D378DC6-3EDF-4D01-8107-840EEFC62006";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

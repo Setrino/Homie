@@ -363,22 +363,15 @@
         </class>
         <class className="MainViewController" superclassName="UITabBarController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MainViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="revealMenu:"/>
-            </relationships>
         </class>
         <class className="RoomViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/RoomViewController.h"/>
             <relationships>
-                <relationship kind="action" name="addRoom:"/>
                 <relationship kind="outlet" name="addRoom" candidateClass="UIButton"/>
             </relationships>
         </class>
         <class className="SettingsViewController" superclassName="UINavigationController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SettingsViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="revealMenu:"/>
-            </relationships>
         </class>
         <class className="SideMenuViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SideMenuViewController.h"/>

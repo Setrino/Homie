@@ -10,6 +10,9 @@
 #import "ECSlidingViewController.h"
 #import "SideMenuViewController.h"
 
+#define NAV_BAR_HEIGHT 44
+#define HUBS_HEIGHT 60
+
 @interface MainViewController ()
 
 @end
@@ -48,6 +51,40 @@
     
     [self.view addSubview: self.menuButton];
     
+    hubMenuOverlay = [[UIView alloc] initWithFrame:CGRectMake(0, NAV_BAR_HEIGHT, 320, 368)];
+    hubMenuOverlay.backgroundColor = [UIColor blackColor];
+    
+    [self.view addSubview: hubMenuOverlay];
+    
+    scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, 320, HUBS_HEIGHT)];
+    scrollView.indicatorStyle = UIScrollViewIndicatorStyleWhite;
+    scrollView.showsHorizontalScrollIndicator = NO;
+    scrollView.clipsToBounds = YES;
+    scrollView.scrollEnabled = YES;
+    scrollView.pagingEnabled = YES;
+    scrollView.bounces = NO;
+    scrollView.delegate = self;
+    
+    [hubMenuOverlay addSubview:scrollView];
+    
+    UIView *homeView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, HUBS_HEIGHT)];
+    homeView.backgroundColor = [UIColor blueColor];
+    
+    [scrollView addSubview:homeView];
+    
+    UIView *officeView = [[UIView alloc] initWithFrame:CGRectMake(320, 0, 320, HUBS_HEIGHT)];
+    officeView.backgroundColor = [UIColor orangeColor];
+    
+    [scrollView addSubview:officeView];
+    
+    scrollView.contentSize = CGSizeMake(scrollView.frame.size.width * 2, scrollView.frame.size.height);
+    
+    
+    pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(150, NAV_BAR_HEIGHT + HUBS_HEIGHT - 15, 20, 10)];
+    pageControl.numberOfPages = 2;
+    pageControl.currentPage = 0;
+    
+    [self.view addSubview: pageControl];
     
      for(UITabBarItem *item in self.tabBar.items)
         item.enabled = false;
@@ -58,6 +95,13 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)sender{
+    // Update the page when more than 50% of the previous/next page is visible
+    CGFloat pageWidth = scrollView.frame.size.width;
+    int page = floor((scrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
+    pageControl.currentPage = page;
 }
 
 - (IBAction)revealMenu:(id)sender{

@@ -8,7 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MainViewController : UITabBarController
+@interface MainViewController : UITabBarController <UIScrollViewDelegate>{
+
+    UIView *hubMenuOverlay;
+    UIScrollView *scrollView;
+    UIPageControl *pageControl;
+}
 
 @property (strong, nonatomic) UIButton *menuButton;
 
