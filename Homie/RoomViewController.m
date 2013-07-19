@@ -8,6 +8,7 @@
 
 #import "RoomViewController.h"
 #import "MainViewController.h"
+#import "RoomAddViewController.h"
 
 @interface RoomViewController ()
 
@@ -235,9 +236,32 @@
 - (IBAction)addRoom:(id)sender{
     NSLog(@"Add Room");
     
-    for(UITabBarItem *item in self.tabBarController.tabBar.items)
+    /*
+     for(UITabBarItem *item in self.tabBarController.tabBar.items)
         item.enabled = true;
+     */
     
+}
+
+#pragma mark - RoomAddViewCotnrollerDelegate
+
+- (void)roomAddViewControllerDidCancel:(RoomAddViewController *)controller{
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)roomAddViewControllerDidSave:(RoomAddViewController *)controller{
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    
+    if([segue.identifier isEqualToString:@"AddRoom"]){
+        UINavigationController *navigationController = segue.destinationViewController;
+        RoomAddViewController *roomAddViewController = [[navigationController viewControllers] objectAtIndex:0];
+        roomAddViewController.delegate = self;
+    }
 }
 
 @end

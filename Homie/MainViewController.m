@@ -9,6 +9,7 @@
 #import "MainViewController.h"
 #import "ECSlidingViewController.h"
 #import "SideMenuViewController.h"
+#import "RoomViewController.h"
 
 #define NAV_BAR_HEIGHT 44
 #define HUBS_HEIGHT 60
@@ -218,9 +219,13 @@
     if(hiddenHome){
         hubMenuOverlay.hidden = FALSE;
         hiddenHome = FALSE;
+        for(UITabBarItem *item in self.tabBar.items)
+            item.enabled = false;
     }else{
         hubMenuOverlay.hidden = TRUE;
         hiddenHome = TRUE;
+        for(UITabBarItem *item in self.tabBar.items)
+            item.enabled = true;
     }
 }
 

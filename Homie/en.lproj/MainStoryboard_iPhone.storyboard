@@ -36,31 +36,103 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Rooms" id="SCh-B3-EJ8">
-                        <barButtonItem key="rightBarButtonItem" id="Zd3-oM-prY">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ZMJ-wk-76p">
-                                <rect key="frame" x="283" y="6" width="32" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" image="add_button.png">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="addRoom:" destination="g1e-D2-zpV" eventType="touchUpInside" id="VrQ-d0-mOG"/>
-                                </connections>
-                            </button>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Zd3-oM-prY">
+                            <connections>
+                                <segue destination="cq4-wD-cgH" kind="modal" identifier="AddRoom" modalTransitionStyle="coverVertical" id="ET4-B3-0Fp"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <connections>
-                        <outlet property="addRoom" destination="ZMJ-wk-76p" id="gI2-L3-rsX"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dHh-Gw-PR0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1856" y="603"/>
+        </scene>
+        <!--Room Add View Controller - Add Room-->
+        <scene sceneID="PoW-1U-pcT">
+            <objects>
+                <tableViewController id="P71-Qa-SsS" customClass="RoomAddViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="nvj-XP-k62">
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <sections>
+                            <tableViewSection headerTitle="Room Name" id="234-df-aZw">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="RoomAddCell" id="Ev1-Lm-JeZ">
+                                        <rect key="frame" x="0.0" y="46" width="320" height="46"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="10" y="1" width="300" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LlO-ev-CyZ">
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="43" id="Dzz-X1-52n"/>
+                                                        <constraint firstAttribute="width" constant="300" id="lYO-Vk-oGO"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="LlO-ev-CyZ" firstAttribute="centerX" secondItem="Ev1-Lm-JeZ" secondAttribute="centerX" type="default" id="8T6-9i-2aS"/>
+                                            <constraint firstItem="LlO-ev-CyZ" firstAttribute="top" secondItem="Ev1-Lm-JeZ" secondAttribute="top" constant="1" id="fj2-0L-Mt7"/>
+                                        </constraints>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection id="4wS-p7-tay">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="RoomAddCell" textLabel="Pvr-z6-TDt" detailTextLabel="Miy-ZT-udM" style="IBUITableViewCellStyleValue1" id="Sqa-cB-vu4">
+                                        <rect key="frame" x="0.0" y="112" width="320" height="46"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="10" y="1" width="280" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Room Type" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pvr-z6-TDt">
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Miy-ZT-udM">
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.2196078431372549" green="0.32941176470588235" blue="0.52941176470588236" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="P71-Qa-SsS" id="S52-Df-8ae"/>
+                            <outlet property="delegate" destination="P71-Qa-SsS" id="oBH-z5-thv"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Add Room" id="qKZ-qU-2Hg">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="w2b-No-E37">
+                            <connections>
+                                <action selector="cancel:" destination="P71-Qa-SsS" id="3uw-vF-dKE"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="Fnh-JV-IU7">
+                            <connections>
+                                <action selector="done:" destination="P71-Qa-SsS" id="JH4-ap-VB3"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="RoomNameTextField" destination="LlO-ev-CyZ" id="cwS-wv-oR8"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="u4m-w3-Ndv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2815" y="603"/>
         </scene>
         <!--Main View Controller-->
         <scene sceneID="QCS-eH-cjM">
@@ -225,6 +297,7 @@
                 <navigationController title="Rooms" id="07j-El-x85" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Rooms" image="room.png" id="WeQ-Bx-K22"/>
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="MbC-GT-SVz"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="2Rk-Ba-NlG">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -346,9 +419,26 @@
             </objects>
             <point key="canvasLocation" x="812" y="1068"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="nV1-Ba-Lp3">
+            <objects>
+                <navigationController id="cq4-wD-cgH" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="T2M-X9-rB8">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="P71-Qa-SsS" kind="relationship" relationship="rootViewController" id="YET-y9-qhH"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bc6-Ro-ngd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2289" y="603"/>
+        </scene>
     </scenes>
     <resources>
-        <image name="add_button.png" width="31" height="32"/>
         <image name="bulb.png" width="30" height="30"/>
         <image name="room.png" width="30" height="30"/>
         <image name="scene.png" width="30" height="30"/>
@@ -365,9 +455,22 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MainViewController.h"/>
             <relationships>
                 <relationship kind="action" name="changePage:"/>
+                <relationship kind="action" name="hideMenu:"/>
                 <relationship kind="action" name="revealMenu:"/>
                 <relationship kind="action" name="slideLeft:"/>
                 <relationship kind="action" name="slideRight:"/>
+            </relationships>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="RoomAddViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RoomAddViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="cancel:"/>
+                <relationship kind="action" name="done:"/>
+                <relationship kind="outlet" name="RoomNameTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="roomNameTextField" candidateClass="UITextField"/>
             </relationships>
         </class>
         <class className="RoomViewController" superclassName="UITableViewController">

@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RoomAddViewController.h"
 
-@interface RoomViewController : UITableViewController
+@interface RoomViewController : UITableViewController <RoomAddViewControllerDelegate>
 
 @property (strong, nonatomic) IBOutlet UIButton *addRoom;
 

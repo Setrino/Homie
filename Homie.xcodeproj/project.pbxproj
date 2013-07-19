@@ -46,6 +46,8 @@
 		83A127B51796EF84008CF720 /* ECSlidingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A127B21796EF84008CF720 /* ECSlidingViewController.m */; };
 		83A127B61796EF84008CF720 /* UIImage+ImageWithUIView.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A127B41796EF84008CF720 /* UIImage+ImageWithUIView.m */; };
 		83A127BC1796F011008CF720 /* InitialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A127BB1796F011008CF720 /* InitialViewController.m */; };
+		83CC8C6C1799453E00CE09A5 /* DevicesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83CC8C6B1799453E00CE09A5 /* DevicesViewController.m */; };
+		83CC8C6F179949D700CE09A5 /* RoomAddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83CC8C6E179949D700CE09A5 /* RoomAddViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -100,6 +102,10 @@
 		83A127B41796EF84008CF720 /* UIImage+ImageWithUIView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageWithUIView.m"; sourceTree = "<group>"; };
 		83A127BA1796F011008CF720 /* InitialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InitialViewController.h; sourceTree = "<group>"; };
 		83A127BB1796F011008CF720 /* InitialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InitialViewController.m; sourceTree = "<group>"; };
+		83CC8C6A1799453D00CE09A5 /* DevicesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DevicesViewController.h; sourceTree = "<group>"; };
+		83CC8C6B1799453E00CE09A5 /* DevicesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DevicesViewController.m; sourceTree = "<group>"; };
+		83CC8C6D179949D700CE09A5 /* RoomAddViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomAddViewController.h; sourceTree = "<group>"; };
+		83CC8C6E179949D700CE09A5 /* RoomAddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomAddViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,8 +167,12 @@
 				832A53221796F474008FF8B0 /* MainViewController.m */,
 				8367B2AB17970D4200D9E77C /* RoomViewController.h */,
 				8367B2AC17970D4200D9E77C /* RoomViewController.m */,
+				83CC8C6D179949D700CE09A5 /* RoomAddViewController.h */,
+				83CC8C6E179949D700CE09A5 /* RoomAddViewController.m */,
 				8367B29B1796F6C300D9E77C /* SettingsViewController.h */,
 				8367B29C1796F6C300D9E77C /* SettingsViewController.m */,
+				83CC8C6A1799453D00CE09A5 /* DevicesViewController.h */,
+				83CC8C6B1799453E00CE09A5 /* DevicesViewController.m */,
 				83A127B11796EF84008CF720 /* ECSlidingViewController.h */,
 				83A127B21796EF84008CF720 /* ECSlidingViewController.m */,
 				83A127B31796EF84008CF720 /* UIImage+ImageWithUIView.h */,
@@ -311,6 +321,8 @@
 				8367B29D1796F6C300D9E77C /* SettingsViewController.m in Sources */,
 				8367B2A01796F78600D9E77C /* SideMenuViewController.m in Sources */,
 				8367B2AD17970D4200D9E77C /* RoomViewController.m in Sources */,
+				83CC8C6C1799453E00CE09A5 /* DevicesViewController.m in Sources */,
+				83CC8C6F179949D700CE09A5 /* RoomAddViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
