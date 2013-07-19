@@ -9,13 +9,15 @@
 #import "RoomViewController.h"
 #import "MainViewController.h"
 #import "RoomAddViewController.h"
+#import "DetailsViewController.h"
+#import "Room.h"
 
 @interface RoomViewController ()
 
-@property (strong, nonatomic) NSArray *rooms;
-@property (strong, nonatomic) NSArray *room1;
-@property (strong, nonatomic) NSArray *room2;
-@property (strong, nonatomic) NSArray *room3;
+@property (strong, nonatomic) NSMutableArray *rooms;
+@property (strong, nonatomic) Room *room1;
+@property (strong, nonatomic) Room *room2;
+@property (strong, nonatomic) Room *room3;
 
 @end
 
@@ -42,10 +44,22 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-    room1 = [NSArray arrayWithObjects:@"Table Light", @"Side Light", @"Music Switch", @"Windows Switch", @"Temperature Sensor", @"Curtains Switch", nil];
-    room2 = [NSArray arrayWithObjects:@"Bedside Lamp", @"Ceiling Lamp", @"Blinds", @"TV Switch", nil];
-    room3 = [NSArray arrayWithObjects:@"Wall Lights", @"Humidity Sensor", @"Temperature Sensor", @"Sprinklers", nil];
-    rooms = [NSArray arrayWithObjects:room1, room2, room3, nil];
+    room1 = [[Room alloc] init];
+    room1.name = room1.type = @"Dining Room";
+    room1.image = [UIImage imageNamed:@"dining.png"];
+    room1.devices = [NSArray arrayWithObjects:@"Table Light", @"Side Light", @"Music Switch", @"Windows Switch", @"Temperature Sensor", @"Curtains Switch", nil];
+    
+    room2 = [[Room alloc] init];
+    room2.name = room2.type = @"Bedroom";
+    room2.image = [UIImage imageNamed:@"bedroom.png"];
+    room2.devices = [NSArray arrayWithObjects:@"Bedside Lamp", @"Ceiling Lamp", @"Blinds", @"TV Switch", nil];
+    
+    room3 = [[Room alloc] init];
+    room3.name = room3.type = @"Garden";
+    room3.image = [UIImage imageNamed:@"garden.png"];
+    room3.devices = [NSArray arrayWithObjects:@"Wall Lights", @"Humidity Sensor", @"Temperature Sensor", @"Sprinklers", nil];
+    
+    rooms = [NSMutableArray arrayWithObjects:room1, room2, room3, nil];
     
 }
 
@@ -67,35 +81,19 @@
 {
     
     // Return the number of rows in the section.
-    switch (section) {
-        case 0:
-            return [self.room1 count];
-        case 1:
-            return [self.room2 count];
-        case 2:
-            return [self.room3 count];
-    }
-    return 0;
+
+    return [((Room *)[self.rooms objectAtIndex:section]).devices count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSString *cellIdentifier = @"Cell";
+    NSString *cellIdentifier = @"RoomCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     if (cell == nil){
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
     }
     
-    if(indexPath.section == 0){
-        cell.textLabel.text = [NSString stringWithFormat:@"%@", [self.room1 objectAtIndex:indexPath.row]];
-    }else if (indexPath.section == 1){
-        cell.textLabel.text = [NSString stringWithFormat:@"%@", [self.room2 objectAtIndex:indexPath.row]];
-    }
-    else if (indexPath.section == 2){
-        cell.textLabel.text = [NSString stringWithFormat:@"%@", [self.room3 objectAtIndex:indexPath.row]];
-    }
-    
-    //cell.textLabel.text = [NSString stringWithFormat:@"%@", [self.menu objectAtIndex:indexPath.row]];
+    cell.textLabel.text = [NSString stringWithFormat:@"%@", [((Room *)[self.rooms objectAtIndex:indexPath.section]).devices objectAtIndex:indexPath.row]];
     
     return cell;
 
@@ -103,14 +101,7 @@
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
     
-    if(section == 0){
-        return @"Dining Room";
-    }else if (section == 1){
-        return @"Bedroom";
-    }else if (section == 2){
-        return @"Garden";
-    }
-    return nil;
+    return ((Room *)[rooms objectAtIndex:section]).name;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
@@ -118,16 +109,6 @@
     NSString *sectionTitle = [self tableView:tableView titleForHeaderInSection:section];
     if (sectionTitle == nil) {
         return nil;
-    }
-    
-    UIImage *roomImage;
-    
-    if(section == 0){
-        roomImage = [UIImage imageNamed:@"dining.png"];
-    }else if (section == 1){
-        roomImage = [UIImage imageNamed:@"bedroom.png"];
-    }else if (section == 2){
-        roomImage = [UIImage imageNamed:@"garden.png"];
     }
     
     UILabel *backLabel = [[UILabel alloc] init];
@@ -147,7 +128,7 @@
     [view addSubview:backLabel];
     [view addSubview:titleLabel];
     
-    UIImageView *imageView = [[UIImageView alloc] initWithImage:roomImage];
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:((Room *)[rooms objectAtIndex:section]).image];
     imageView.frame = CGRectMake(0, 0, 50, 50);
     [view addSubview:imageView];
     
@@ -211,27 +192,10 @@
      */
     
     UIViewController *newTopViewController;
-    
-    if(indexPath.section == 0){
         
-        NSString *identifier = [NSString stringWithFormat:@"%@", [self.room1 objectAtIndex:indexPath.row]];
-        
+    NSString *identifier = [NSString stringWithFormat:@"%@", [((Room *)[self.rooms objectAtIndex:indexPath.section]).devices objectAtIndex:indexPath.row]];
         newTopViewController = [self.storyboard instantiateViewControllerWithIdentifier:identifier];
-        
-    }else if (indexPath.section == 1){
-        
-        NSString *identifier = [NSString stringWithFormat:@"%@", [self.room2 objectAtIndex:indexPath.row]];
-        
-        newTopViewController = [self.storyboard instantiateViewControllerWithIdentifier:identifier];
-        
-    }else if (indexPath.section == 1){
-        
-        NSString *identifier = [NSString stringWithFormat:@"%@", [self.room3 objectAtIndex:indexPath.row]];
-        
-        newTopViewController = [self.storyboard instantiateViewControllerWithIdentifier:identifier];
-        
     }
-}
 
 - (IBAction)addRoom:(id)sender{
     NSLog(@"Add Room");
@@ -255,12 +219,27 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+- (void)roomAddViewControllerDidAddRoom:(RoomAddViewController *)controller addRoom:(Room *)room{
+    
+    [self.rooms addObject:room];
+    //[self.tableView reloadData];
+    [self.tableView insertSections:[NSIndexSet indexSetWithIndex:[self.rooms count] - 1] withRowAnimation:UITableViewRowAnimationAutomatic];
+	[self dismissViewControllerAnimated:YES completion:nil];
+}
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     
     if([segue.identifier isEqualToString:@"AddRoom"]){
         UINavigationController *navigationController = segue.destinationViewController;
         RoomAddViewController *roomAddViewController = [[navigationController viewControllers] objectAtIndex:0];
         roomAddViewController.delegate = self;
+    }
+    
+    if([segue.identifier isEqualToString:@"showDeviceDetails"]){
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        DetailsViewController *detailsViewController = segue.destinationViewController;
+        detailsViewController.title = [((Room *)[self.rooms objectAtIndex:indexPath.section]).devices objectAtIndex: indexPath.row];
+        detailsViewController.roomName = ((Room *)[self.rooms objectAtIndex:indexPath.section]).name;
     }
 }
 

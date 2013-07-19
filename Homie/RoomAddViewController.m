@@ -7,6 +7,7 @@
 //
 
 #import "RoomAddViewController.h"
+#import "Room.h"
 
 @interface RoomAddViewController ()
 
@@ -95,6 +96,12 @@
 
 - (IBAction)done:(id)sender{
     
+    Room *room = [[Room alloc] init];
+    room.name = self.roomNameTextField.text;
+    room.type = @"Kitchen";
+    room.image = [UIImage imageNamed:@"kitchen.png"];
+    room.devices = [NSArray arrayWithObjects:@"Humidity", @"Light", @"Microwave", @"Oven", @"Fridge", @"Light 0", nil];
+    [self.delegate roomAddViewControllerDidAddRoom:self addRoom:room];
     
     [self.delegate roomAddViewControllerDidSave:self];
 }

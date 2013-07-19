@@ -219,11 +219,15 @@
     if(hiddenHome){
         hubMenuOverlay.hidden = FALSE;
         hiddenHome = FALSE;
+        leftHub.hidden = FALSE;
+        rightHub.hidden = FALSE;
         for(UITabBarItem *item in self.tabBar.items)
             item.enabled = false;
     }else{
         hubMenuOverlay.hidden = TRUE;
         hiddenHome = TRUE;
+        leftHub.hidden = TRUE;
+        rightHub.hidden = TRUE;
         for(UITabBarItem *item in self.tabBar.items)
             item.enabled = true;
     }
