@@ -42,6 +42,12 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    if (indexPath.section == 0){
+        [self.roomNameTextField becomeFirstResponder];
+    }
+}
 
 /*
 // Override to support conditional editing of the table view.
@@ -88,6 +94,7 @@
 }
 
 - (IBAction)done:(id)sender{
+    
     
     [self.delegate roomAddViewControllerDidSave:self];
 }
